@@ -398,6 +398,111 @@
   }
   .join .btn-main:hover{ box-shadow: 0 16px 32px rgba(74,46,92,0.32); }
 
+  /* ---------- tutorials ---------- */
+  .tutorials-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .tutorial-card{
+    background: white;
+    border-radius: 24px;
+    overflow:hidden;
+    box-shadow: var(--shadow);
+    border: 3px dashed transparent;
+    cursor:pointer;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .tutorial-card:hover{
+    transform: translateY(-6px);
+    border-color: var(--pink);
+  }
+  .tutorial-thumb{
+    position:relative;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--lavender) 60%, var(--sky) 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .tutorial-play{
+    width:56px; height:56px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.9);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 8px 20px rgba(74,46,92,0.25);
+    font-size:20px;
+    color: var(--pink-deep);
+    transition: transform .2s ease;
+  }
+  .tutorial-card:hover .tutorial-play{ transform: scale(1.1); }
+  .tutorial-info{
+    padding: 16px 18px 20px;
+  }
+  .tutorial-info h3{
+    font-size:16.5px;
+    color: var(--plum);
+    margin-bottom:4px;
+  }
+  .tutorial-info p{
+    font-size:13px;
+    color: var(--plum-soft);
+    font-weight:500;
+  }
+
+  /* ---------- video modal ---------- */
+  .video-modal{
+    position:fixed;
+    inset:0;
+    background: rgba(74,46,92,0.55);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding: 5vw;
+  }
+  .video-modal.open{ display:flex; }
+  .video-modal-inner{
+    background: white;
+    border-radius: 26px;
+    padding: 16px;
+    width: 100%;
+    max-width: 860px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    position:relative;
+  }
+  .video-frame-wrap{
+    position:relative;
+    width:100%;
+    aspect-ratio: 16/9;
+    border-radius: 18px;
+    overflow:hidden;
+    background:#000;
+  }
+  .video-frame-wrap iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .video-close{
+    position:absolute;
+    top:-14px;
+    right:-14px;
+    width:38px; height:38px;
+    border-radius:50%;
+    background: var(--pink-deep);
+    color:white;
+    border:3px solid white;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow: var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+  }
+
   /* ---------- footer ---------- */
   footer{
     position:relative; z-index:2;
@@ -438,6 +543,7 @@
   <div class="nav-links">
     <a href="#values">Ценности</a>
     <a href="#gallery">Вдохновение</a>
+    <a href="#tutorials">Туториалы</a>
     <a href="#ranks">Ранги</a>
   </div>
   <a class="nav-cta" href="https://t.me/party_femboys" target="_blank" rel="noopener">Вступить ♡</a>
@@ -541,6 +647,67 @@
   </div>
 </section>
 
+<section id="tutorials">
+  <div class="section-head">
+    <span class="eyebrow">ГАЙДЫ И УРОКИ</span>
+    <h2>Туториалы</h2>
+    <p>Подборка видео-уроков по стилю, макияжу и уходу. Нажми на карточку —
+       видео откроется прямо на сайте.</p>
+  </div>
+  <div class="tutorials-grid">
+
+    <div class="tutorial-card" data-video="FuSj-9V-NDg">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>Как сделать женский голос (ну или фембойский хз)/h3>
+        <p>Урок 1</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card" data-video="cgmiZ95kYME">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>ГАЙД как стать ультра милым фури фембоем в 2026</h3>
+        <p>Урок 2</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card" data-video="KoNlQgGnYa8">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>ГАЙД: Как стать ФЕМБОЕМ</h3>
+        <p>Урок 3</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card" data-video="x0peLJSbSHs">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>Если ты любишь свои волосы | Изучи эти 5 шагов по уходу за волосами</h3>
+        <p>Урок 4</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card" data-video="vQgqj7Ns8kc">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>ГАЙД НА ФЕМБОЙ МАКИЯЖ ОТ ЛУЧЕГИ</h3>
+        <p>Урок 5</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-inner">
+    <button class="video-close" id="videoClose">✕</button>
+    <div class="video-frame-wrap">
+      <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
 <section>
   <div class="join">
     <h2>Готов(а) присоединиться? ♡</h2>
@@ -556,6 +723,30 @@
   <div class="footer-symbol">♡ Партия Фембоев ♡</div>
   Милость • Стиль • Свобода
 </footer>
+
+<script>
+  const videoModal = document.getElementById('videoModal');
+  const videoFrame = document.getElementById('videoFrame');
+  const videoClose = document.getElementById('videoClose');
+
+  document.querySelectorAll('.tutorial-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const videoId = card.getAttribute('data-video');
+      videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      videoModal.classList.add('open');
+    });
+  });
+
+  function closeVideo(){
+    videoModal.classList.remove('open');
+    videoFrame.src = ''; // остановить видео при закрытии
+  }
+
+  videoClose.addEventListener('click', closeVideo);
+  videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) closeVideo();
+  });
+</script>
 
 </body>
 </html>
