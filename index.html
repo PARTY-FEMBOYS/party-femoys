@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -487,6 +487,11 @@
     height:100%;
     border:0;
   }
+  .video-frame-wrap.vertical{
+    aspect-ratio: 9 / 16;
+    max-width: 360px;
+    margin: 0 auto;
+  }
   .video-close{
     position:absolute;
     top:-14px;
@@ -659,8 +664,8 @@
     <div class="tutorial-card" data-video="FuSj-9V-NDg">
       <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
       <div class="tutorial-info">
-        <h3>Как сделать женский голос (ну или фембойский хз)/h3>
-        <p>Урок 1</p>
+        <h3>Как сделать женский голос (ну или фембойский хз)</h3>
+        <p>Урок 1 · Youtube</p>
       </div>
     </div>
 
@@ -668,7 +673,7 @@
       <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
       <div class="tutorial-info">
         <h3>ГАЙД как стать ультра милым фури фембоем в 2026</h3>
-        <p>Урок 2</p>
+        <p>Урок 2 · Youtube</p>
       </div>
     </div>
 
@@ -676,7 +681,7 @@
       <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
       <div class="tutorial-info">
         <h3>ГАЙД: Как стать ФЕМБОЕМ</h3>
-        <p>Урок 3</p>
+        <p>Урок 3 · Youtube</p>
       </div>
     </div>
 
@@ -684,7 +689,7 @@
       <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
       <div class="tutorial-info">
         <h3>Если ты любишь свои волосы | Изучи эти 5 шагов по уходу за волосами</h3>
-        <p>Урок 4</p>
+        <p>Урок 4 · Youtube</p>
       </div>
     </div>
 
@@ -692,18 +697,57 @@
       <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
       <div class="tutorial-info">
         <h3>ГАЙД НА ФЕМБОЙ МАКИЯЖ ОТ ЛУЧЕГИ</h3>
-        <p>Урок 5</p>
+        <p>Урок 5 · Youtube</p>
       </div>
     </div>
 
+    <div class="tutorial-card" data-type="tiktok" data-video="7470619926370225438">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>Make up tutorial(femboy)</h3>
+        <p>Урок 6 · TikTok</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card" data-type="tiktok" data-video="7615762593105448214">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>How to be a FEMBOY Fast</h3>
+        <p>Урок 7 · TikTok</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card" data-type="tiktok" data-video="7655728993404013856">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>Femboy Makeup</h3>
+        <p>Урок 8 · TikTok</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card" data-type="tiktok" data-video="7666595734258601234">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>Фембой макияж</h3>
+        <p>Урок 9 · TikTok</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card" data-type="tiktok" data-video="7621240160155471136">
+      <div class="tutorial-thumb"><div class="tutorial-play">▶</div></div>
+      <div class="tutorial-info">
+        <h3>Dress with me:Black Femboy outfit edition</h3>
+        <p>Урок 10 · TikTok</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <div class="video-modal" id="videoModal">
   <div class="video-modal-inner">
     <button class="video-close" id="videoClose">✕</button>
-    <div class="video-frame-wrap">
-      <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="video-frame-wrap" id="videoFrameWrap">
+      <iframe id="videoFrame" src="" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -727,12 +771,22 @@
 <script>
   const videoModal = document.getElementById('videoModal');
   const videoFrame = document.getElementById('videoFrame');
+  const videoFrameWrap = document.getElementById('videoFrameWrap');
   const videoClose = document.getElementById('videoClose');
 
   document.querySelectorAll('.tutorial-card').forEach(card => {
     card.addEventListener('click', () => {
       const videoId = card.getAttribute('data-video');
-      videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      const type = card.getAttribute('data-type') || 'youtube';
+
+      if (type === 'tiktok') {
+        videoFrame.src = `https://www.tiktok.com/embed/v2/${videoId}`;
+        videoFrameWrap.classList.add('vertical');
+      } else {
+        videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        videoFrameWrap.classList.remove('vertical');
+      }
+
       videoModal.classList.add('open');
     });
   });
@@ -740,6 +794,7 @@
   function closeVideo(){
     videoModal.classList.remove('open');
     videoFrame.src = ''; // остановить видео при закрытии
+    videoFrameWrap.classList.remove('vertical');
   }
 
   videoClose.addEventListener('click', closeVideo);
