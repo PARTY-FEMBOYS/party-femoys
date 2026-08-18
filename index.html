@@ -602,6 +602,65 @@
   }
   .quiz-retry:hover{ border-color: var(--pink-deep); transform: translateY(-2px); }
 
+  /* ---------- documents ---------- */
+  .documents-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+  }
+  .document-card{
+    background: white;
+    border-radius: 24px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    border: 3px dashed transparent;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap: 14px;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .document-card:hover{
+    border-color: var(--pink);
+    transform: translateY(-6px);
+  }
+  .doc-icon{
+    width:52px; height:52px;
+    border-radius: 16px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px;
+    background: var(--pink-soft);
+  }
+  .document-card:nth-child(4n+2) .doc-icon{ background: var(--lavender-soft); }
+  .document-card:nth-child(4n+3) .doc-icon{ background: var(--sky-soft); }
+  .doc-info h3{
+    font-size:16.5px;
+    color: var(--plum);
+    margin-bottom:4px;
+    line-height:1.35;
+  }
+  .doc-info p{
+    font-size:13px;
+    color: var(--plum-soft);
+    font-weight:500;
+  }
+  .doc-open-btn{
+    margin-top: auto;
+    align-self:stretch;
+    text-align:center;
+    background: var(--pink-soft);
+    color: var(--pink-deep) !important;
+    font-weight:700;
+    font-size:14px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: background .2s ease, color .2s ease;
+  }
+  .doc-open-btn:hover{
+    background: var(--pink-deep);
+    color: white !important;
+  }
+
   /* ---------- footer ---------- */
   footer{
     position:relative; z-index:2;
@@ -645,6 +704,7 @@
     <a href="#tutorials">Туториалы</a>
     <a href="#ranks">Ранги</a>
     <a href="#test">Тест</a>
+    <a href="#documents">Документы</a>
   </div>
   <a class="nav-cta" href="https://t.me/party_femboys" target="_blank" rel="noopener">Вступить ♡</a>
 </nav>
@@ -869,6 +929,54 @@
       <div class="radar-wrap" id="radarWrap"></div>
       <div class="verdict" id="quizVerdict"></div>
       <button class="quiz-retry" id="quizRetry">Пройти ещё раз ↺</button>
+    </div>
+
+  </div>
+</section>
+
+<section id="documents">
+  <div class="section-head">
+    <span class="eyebrow">БИБЛИОТЕКА ПАРТИИ</span>
+    <h2>Документы</h2>
+    <p>Официальные документы Партии Фембоев — открывай, читай, скачивай.</p>
+  </div>
+
+  <div class="documents-grid">
+
+    <div class="document-card">
+      <div class="doc-icon">📜</div>
+      <div class="doc-info">
+        <h3>Устав Партии Фембоев</h3>
+        <p>Полный устав и законы партии · v4 · .txt</p>
+      </div>
+      <a class="doc-open-btn" href="documents/Устав_Партии_Фембоев_v4.txt" target="_blank" rel="noopener">Открыть</a>
+    </div>
+
+    <div class="document-card">
+      <div class="doc-icon">💬</div>
+      <div class="doc-info">
+        <h3>FAQ для новичков</h3>
+        <p>Ответы на частые вопросы · .txt</p>
+      </div>
+      <a class="doc-open-btn" href="documents/FAQ_для_новичков_пост.txt" target="_blank" rel="noopener">Открыть</a>
+    </div>
+
+    <div class="document-card">
+      <div class="doc-icon">🤝</div>
+      <div class="doc-info">
+        <h3>Договор о союзе</h3>
+        <p>Шаблон договора о сотрудничестве · .txt</p>
+      </div>
+      <a class="doc-open-btn" href="documents/Договор_о_союзе.txt" target="_blank" rel="noopener">Открыть</a>
+    </div>
+
+    <div class="document-card">
+      <div class="doc-icon">🖼️</div>
+      <div class="doc-info">
+        <h3>Договор о союзе (скан)</h3>
+        <p>Изображение подписанного документа · .png</p>
+      </div>
+      <a class="doc-open-btn" href="documents/договор о союзе.png" target="_blank" rel="noopener">Открыть</a>
     </div>
 
   </div>
